@@ -3,7 +3,7 @@
 ## Pre-requisite
 - [Node.js](https://nodejs.org/en/download/ "Node Js")
 -  NPM (Comes with Node.js)
-- [Gulp 4](https://gulpjs.com/ "Gulp")
+- [Gulp](https://gulpjs.com/ "Gulp")
 
 Install Gulp cli
 
