@@ -13,7 +13,7 @@ Install Gulp cli
 ## Getting started
 
 1. Clone repository:
-`git clone https://github.com/JayeshLab/bootstrap-5-sass-gulp-4-boilerplate.git`
+`git clone https://github.com/untalrobert/robespierre.co`
 
 2. Change directory:
 `cd PruebaTecnica`
