@@ -1,0 +1,329 @@
+// Define tus variables
+$bg-nav: #fff;
+$main-bg-color: #333;
+$menu-width: 30%;
+
+// Variables de color
+$c-white: #fff;
+$c-blue-color-submenu: #022d67;
+$c-blue-line: #429cf9;
+$c-line-hover-menu: #25d69a;
+$c-nav: #afbbce;
+
+// Variables de Textos
+$c-texto-nav: #afbbce;
+$c-text-p:#7c7e81;
+
+// Variables para tamaños de fuente en rem
+$font-size-xs: 0.75rem;  // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1rem;    // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem;  // 20px
+$font-size-xxl: 2rem;   // 32px
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+.nav-section {
+    height: 60px;
+    background-color: $bg-nav;
+    display: flex;
+    .logo {
+        ul {
+            list-style: none;
+            margin: 16px 39px;
+        }
+    }
+}
+
+.sub-menu {
+    /* Estilo para el menú de navegación */
+    .navbar {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      .navbar-brand {
+        color: $c-white;
+        font-size: $font-size-md;
+        display: flex;
+        align-items: center;
+        margin-right: 4px;
+      }
+    }
+    
+  .nav-subMenu {
+    background-color: $c-blue-color-submenu;
+    border-bottom: 4.5px solid $c-blue-line;
+    
+    .nav-left-item {
+      .nav-link {
+        color: $c-texto-nav; // Color de texto predeterminado
+        text-decoration: none; // Elimina la decoración predeterminada de los enlaces
+        // padding: 10px 0; // Espaciado vertical para los elementos del menú
+        position: relative; // Necesario para posicionar el elemento ::before
+        transition: color 0.3s; // Agrega una transición suave al color del texto
+        font-size: $font-size-sm;
+
+        &:hover, &:focus, &:active {
+          color: $c-line-hover-menu; // Cambia el color del texto en hover, en foco y cuando está activo
+
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 40px;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 5px; // Altura de la línea inferior
+          background-color: $c-line-hover-menu; // Color de la línea inferior
+          transform: scaleX(0); // Inicialmente, la línea tiene ancho cero
+          transform-origin: center; // Se escala desde el centro
+          transition: transform 0.3s; // Transición para la transformación
+
+          @media (max-width: 767.98px) {
+            top: 54px;            
+          }
+        }
+
+        &:hover::before, &:focus::before, &:active::before {
+          transform: scaleX(1); // Escala la línea a su ancho completo en hover, en foco y cuando está activo
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 10px;
+          bottom: 0;
+          right: 0;
+          width: 2px;
+          background-color: $c-nav;
+          transform: scaleX(1);
+          transform-origin: left;
+          height: 17px;
+
+          @media (max-width: 767.98px) {
+            top: 21px;
+            
+          }
+          
+        }
+      }
+    }
+    .nav-right-item {
+      .fa-brands {
+        color: $c-white !important;
+      }
+      .nav-link {
+        padding: 8px 14px;
+      }
+    }
+  }  
+}
+
+
+
+
+.content-banner {
+  .container-fluid {
+     padding: 0px;
+    .img-container {
+      width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    }
+    .img-fluid {
+      width: 100%; /* Establece la anchura de la imagen al 100% del contenedor */
+      height: auto;
+      display: block;
+      margin: 0 auto; /* Esto centra la imagen horizontalmente */
+    }
+  }
+}
+
+main {
+  #breadcrumbs-items, #content-audio {
+    width: 95%;
+    margin: auto;
+  }  
+}
+
+#breadcrumbs-items {
+  $breadcrumb-divider: quote(">");
+  .breadcrumb {
+    background: none;
+    padding-top: 29px;
+  }
+}
+
+#content-audio{
+  .content-right-text {
+    h1 {
+      color: $c-blue-color-submenu;
+      font-weight: 600;    
+    }
+    p{
+      font-size: $font-size-xl;
+      color: $c-text-p;
+      margin: 20px 0px;
+    }
+    @media (max-width: 767.98px) {
+      h1 {
+        font-size: $font-size-xxl;
+      } 
+    }
+  }
+  .content-compartir {
+    h4 {
+      margin: 20px 0px 10px 0px;
+      font-size: $font-size-md;
+      color: #022d67;
+    }
+    ul {
+      list-style: none;
+
+    }
+  }
+}
+
+
+
+  /* Estilos del menú hamburguesa */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 2;
+  
+    /* Estilos de las barras del menú "hamburguesa" */
+    .bar {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  
+    /* Estilos de la "X" para cerrar */
+    .close-icon {
+      display: none;
+      font-size: 24px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      color: $c-white;
+    }
+  
+    /* Anima las barras para ocultar la hamburguesa y mostrar la "X" */
+    #menu-toggle:checked ~ & {
+      .bar-1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      .bar-2 {
+        opacity: 0;
+      }
+      .bar-3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+      .close-icon {
+        display: block;
+      }
+    }
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Estilos del menú desplegable */
+  .menu {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: 0.4s;
+    z-index: 1;
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+  
+      li {
+        padding: 15px;
+        text-align: center;
+  
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  
+  /* Muestra el menú cuando el input está marcado */
+  input[type="checkbox"]:checked ~ .menu {
+    left: 0;
+  }
+
+  footer {
+    margin-top: 7%;
+    background-color: $c-blue-color-submenu;
+    color: #fff;
+    padding: 20px; 
+    text-align: center; 
+  }
+  
+  .footer-content {
+    max-width: 1200px; /* Ancho máximo del contenido del pie de página */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+  }
+
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+  );
+
+  // No media query necessary for xs breakpoint as it's effectively `@media (max-width: 0) { ... }`
+  // `xs` returns only a ruleset and no media query
+// ... { ... }
+
+// `sm` applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .nav {
+    flex-wrap: nowrap;
+  }
+}
+
+// `md` applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .nav {
+    flex-wrap: nowrap !important;
+  }
+  .icons-social {
+    text-align: center;
+    margin: auto;
+    padding: 10px 0px;
+  }  
+}
